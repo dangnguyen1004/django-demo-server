@@ -17,9 +17,12 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 
+admin.AdminSite.site_header = 'Film Booking Admin'
+admin.AdminSite.site_title = 'Admin'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),
-    path('films/', include('films.urls')),
+    path('films/api/', include('films.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
