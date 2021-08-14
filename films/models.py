@@ -9,6 +9,7 @@ class Genre(models.Model):
 
 class Actor(models.Model):
     name = models.CharField(max_length=255)
+    avatar = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
@@ -61,6 +62,7 @@ class User(models.Model):
     gender = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
+    password = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
@@ -75,7 +77,7 @@ class Ticket(models.Model):
 
 class Seat(models.Model):
     ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
-    row = models.IntegerField()
+    row = models.CharField(max_length=255)
     seat_number = models.IntegerField()
     price = models.IntegerField()
 

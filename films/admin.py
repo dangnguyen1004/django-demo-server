@@ -17,7 +17,7 @@ class FilmAdmin(admin.ModelAdmin):
 
 @admin.register(models.Actor)
 class ActorAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'avatar']
     list_per_page = 10
     search_fields = ['name__istartswith']
 
@@ -41,7 +41,7 @@ class GenreAdmin(admin.ModelAdmin):
 
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['name', 'gender', 'phone', 'email', 'tickets_count']
+    list_display = ['name','password', 'gender', 'phone', 'email', 'tickets_count']
     list_per_page = 10
     search_fields = ['name__istartswith']
     list_filter = ['gender']

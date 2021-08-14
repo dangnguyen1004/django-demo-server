@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-0o(7c^!1)_*mg7500j!p@)-1@n#s2-(5bdjcyrxn&-1hfa1^y!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,16 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'playground',
     'debug_toolbar',
+    'rest_framework',
     'store',
     'tags',
     'films',
     'likes',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
